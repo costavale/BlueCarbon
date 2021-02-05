@@ -1,6 +1,6 @@
 # blue_carbon
 
-The blue_carbon repository is a collection of functions/codes/various with the main focus to help "blue carbon" scientist
+The blue_carbon repository is a collection of functions/codes/various with the main focus to help "blue carbon" scientists
 
 
 At the moment, the following functions are presented:
