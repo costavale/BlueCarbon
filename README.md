@@ -14,12 +14,11 @@ At the moment, the following functions are presented:
 
 `bc_comp(tube_lenght, core_in, core_out)`
 
-
 ### Arguments
 
-`tube_length` lenght in cm of the core
-`core_in` 
-`core_out`
+`tube_length` lenght in cm of the sampler,
+`core_in` lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler),
+`core_out`lenght in cm of the part of the sampler left outside of the sediment (from the outside of the sampler)
 
 
 Every suggestions/comments/changes to improve all the codes are welcome :)
