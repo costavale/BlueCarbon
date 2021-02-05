@@ -4,13 +4,13 @@ The blue_carbon repository is a collection of functions/codes/various with the m
 
 
 At the moment, the following functions are presented:
--  *bc_comp*, that compute the percentage of core compression and the correspondent correction factor,
+-  *bc_comp*, 
 - 
 
 
 ## Tutorial
 
-*bc_comp* function:
+*bc_comp* compute the **Percentage of core compression** and the correspondent **Correction Factor** using three arguments 
 
 `bc_comp(tube_lenght, core_in, core_out)`
 
