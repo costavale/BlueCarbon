@@ -1,4 +1,4 @@
-https://zenodo.org/badge/336005552.svg
+[![DOI](https://zenodo.org/badge/336005552.svg)](https://zenodo.org/badge/latestdoi/336005552)
 
 # blue_carbon
 
