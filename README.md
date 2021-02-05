@@ -1,3 +1,5 @@
+https://zenodo.org/badge/336005552.svg
+
 # blue_carbon
 
 The blue_carbon repository is a collection of functions/codes/various with the main focus to help "blue carbon" scientists
