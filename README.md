@@ -8,6 +8,11 @@ At the moment, the following functions are presented:
 - 
 
 
+## Tutorial
+
+The function *bc_comp* 
+
+`<addr>`
 
 
 Every suggestions/comments/changes to improve all the codes are welcome :)
