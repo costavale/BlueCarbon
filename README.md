@@ -6,7 +6,7 @@ The blue_carbon repository is a collection of functions/codes/various with the m
 
 
 At the moment, the following functions are presented:
--  *bc_comp*, 
+-  *bc_comp*
 - 
 
 
