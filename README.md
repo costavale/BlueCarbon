@@ -10,7 +10,7 @@ At the moment, the following functions are presented:
 - 
 
 
-## *bc_comp* - tutorial
+## *bc_comp*
 
 *bc_comp* compute the **Percentage of core compression** and the correspondent **Correction Factor** using three arguments 
 
