@@ -16,7 +16,7 @@ At the moment, the following functions are presented:
 
 `bc_comp(tube_lenght, core_in, core_out)`
 
-### Arguments
+#### Arguments
 
 - `tube_length` lenght in cm of the sampler,
 - `core_in` lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler),
