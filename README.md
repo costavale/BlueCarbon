@@ -20,7 +20,7 @@ library(aomisc)
 At the moment, the following functions are presented:
 1.  *bc_comp*
 2.  *bc_decomp*
--
+3. 
 
 ## 1. *bc_comp*
 
