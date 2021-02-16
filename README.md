@@ -20,7 +20,7 @@ library(aomisc)
 At the moment, the following functions are presented:
 1.  *bc_comp*
 2.  *bc_decomp*
-3.  *bc_stock*
+3.  *bc_stock* (in preparation)
 
 ## 1. *bc_comp*
 
@@ -67,7 +67,7 @@ The output is a dataframe that use the same "ID" of the data provided. For each 
 `c_org_density`, density of organic carbon concentration expressed in g/cm^3      
 `c_org_dens_sect`, density of organic carbon concentration of each section expressed in g/cm^2      
 
-## 3. *bc_stock*
+## 3. *bc_stock* (in preparation)
 
 *bc_stock* calculates carbon stock 
 
