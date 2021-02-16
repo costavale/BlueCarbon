@@ -12,7 +12,7 @@ At the moment, the following functions are presented:
 
 ## *bc_comp*
 
-*bc_comp* compute the **Percentage of core compression** and the correspondent **Linear Correction Factor** using three arguments 
+*bc_comp* compute the **Percentage of core compression** and the **Linear Correction Factor** using three arguments 
 
 `bc_comp(tube_lenght, core_in, core_out)`
 
