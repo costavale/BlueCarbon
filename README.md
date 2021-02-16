@@ -10,11 +10,11 @@ The following packages need to be installed and loaded:
 *aomisc*
 
 At the moment, the following functions are presented:
--  *bc_comp*
--  *bc_decomp*
+1.  *bc_comp*
+2.  *bc_decomp*
 -
 
-## *bc_comp*
+## 1. *bc_comp*
 
 *bc_comp* calculates the **Percentage of core compression** and the **Linear Correction Factor** using three arguments 
 
@@ -31,7 +31,7 @@ At the moment, the following functions are presented:
 **Percentage of core compression** 
 **Linear Correction Factor**
 
-## *bc_decomp*
+## 2. *bc_decomp*
 
 *bc_decomp* uses six arguments to calculates  
 
