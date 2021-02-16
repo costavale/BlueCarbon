@@ -75,8 +75,8 @@ The output is a dataframe that use the same "ID" of the data provided. For each 
 
 #### Arguments
 
-- `data` dataframe with the following columns "ID"     
+- `data` dataframe with the following columns "ID", "cm_deco", "c_org_dens_sect"     
 
-- `depth` . Default is 1
+- `depth` used to standardize the amount of carbon stored. Default is 1 m
 
 Every suggestions/comments/changes to improve all the codes are welcome :)
