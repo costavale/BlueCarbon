@@ -59,11 +59,11 @@ At the moment, the following functions are presented:
 
 The output is a dataframe that use the same "ID" of the data provided. For each row, the following information are calculated: 
 
-**cm_deco**, decompressed depth of each section expressed in cm 
-**sect_h**, height of each section expressed in cm
-**volume**, volume of each section expressed as
-**density**, density of each section expressed as
-**c_org_est**, 
+**cm_deco**, decompressed depth of each section expressed in cm    
+**sect_h**, height of each section expressed in cm     
+**volume**, volume of each section expressed as      
+**density**, density of each section expressed as     
+**c_org_est**,      
 **c_org_density**, 
 **c_org_dens_sect**, 
 
