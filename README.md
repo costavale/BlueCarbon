@@ -9,11 +9,13 @@ The following packages need to be installed and loaded:
 *drc*
 *aomisc*
 
-`library("tidyverse")
+```
+library("tidyverse")
 library("drc")
 install.packages("remotes") # only the first time
 remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
-library(aomisc)`
+library(aomisc)
+```
 
 At the moment, the following functions are presented:
 1.  *bc_comp*
