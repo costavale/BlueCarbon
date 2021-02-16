@@ -20,7 +20,7 @@ library(aomisc)
 At the moment, the following functions are presented:
 1.  *bc_comp*
 2.  *bc_decomp*
-3. 
+3.  
 
 ## 1. *bc_comp*
 
@@ -61,10 +61,10 @@ The output is a dataframe that use the same "ID" of the data provided. For each 
 
 `cm_deco`, decompressed depth of each section expressed in cm    
 `sect_h`, height of each section expressed in cm     
-`volume`, volume of each section expressed as      
-`density`, density of each section expressed as     
-`c_org_est`,      
-`c_org_density`, 
-`c_org_dens_sect`, 
+`volume`, volume of each section expressed in cm^3   
+`density`, density of each section expressed in g/cm^3     
+`c_org_est`, estimation of organic carbon concentration based on the linear relationship between LOI and c_org data provided       
+`c_org_density`, density of organic carbon concentration expressed in g/cm^3
+`c_org_dens_sect`, density of organic carbon concentration of each section expressed in g/cm^2
 
 Every suggestions/comments/changes to improve all the codes are welcome :)
