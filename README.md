@@ -61,11 +61,11 @@ The output is a dataframe that use the same "ID" of the data provided. For each 
 
 `cm_deco`, decompressed depth of each section expressed in cm    
 `sect_h`, height of each section expressed in cm     
-`volume`, volume of each section expressed in cm^3   
-`density`, density of each section expressed in g/cm^3     
+`volume`, volume of each section expressed in cm<sup>3</sup>   
+`density`, density of each section expressed in g/cm<sup>3</sup>     
 `c_org_est`, estimation of organic carbon concentration based on the linear relationship between LOI and c_org data provided       
-`c_org_density`, density of organic carbon concentration expressed in g/cm^3      
-`c_org_dens_sect`, density of organic carbon concentration of each section expressed in g/cm^2      
+`c_org_density`, density of organic carbon concentration expressed in g/cm<sup>3</sup>           
+`c_org_dens_sect`, density of organic carbon concentration of each section expressed in g/cm<sup>2</sup>      
 
 ## 3. *bc_stock* (work in progress)
 
