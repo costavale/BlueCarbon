@@ -36,7 +36,7 @@ At the moment, the following functions are presented:
 
 #### Output
 
-**Percentage of core compression**, percentage of compression in the core
+**Percentage of core compression**, percentage of compression in the core      
 **Linear Correction Factor**, estimate the linear correction factor that can be applied assuming the same compression through all the core
 
 ## 2. *bc_decomp*
