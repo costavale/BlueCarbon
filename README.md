@@ -4,9 +4,13 @@
 
 The BlueCarbon repository is a collection of functions with the main focus to help "blue carbon" scientists
 
+<<<<<<< HEAD
 
 ## Setup
 The following packages need to be installed and loaded:
+=======
+The following packages are required:
+>>>>>>> 611be963494aece1824566efed7b9ac3bc341a70
 - *tidyverse*
 - *drc*
 - *aomisc*
