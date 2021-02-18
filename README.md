@@ -4,6 +4,8 @@
 
 The BlueCarbon repository is a collection of functions with the main focus to help "blue carbon" scientists
 
+
+## Setup
 The following packages need to be installed and loaded:
 - *tidyverse*
 - *drc*
@@ -17,12 +19,32 @@ remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
 library(aomisc)
 ```
 
+## Data format expected
+
+To use the functions collected here, you need 2 main datasets:
+1. Sediment core properties
+2. Sediment sample properties
+
+The data is expected to follow [tidy data format](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html), with one observation per row and one variable per column.
+
+Here is a visual representation of what that would look like:
+
+**Table of cores**
+![core-table](assets/core-table.png)
+
+**Table of samples**
+![sample-table](assets/sample-table.png)
+
+Notice how the column used to identify the sediment cores is present in both tables. This is important, as it a key to identify the core from which a sample originated from.
+
+## Contents
+
 At the moment, the following functions are presented:
 1.  *bc_comp*
 2.  *bc_decomp*
 3.  *bc_stock* (work in progress)
 
-## 1. *bc_comp*
+### 1. *bc_comp*
 
 *bc_comp* calculates the **Percentage of core compression** and the **Linear Correction Factor** using three arguments 
 
@@ -39,7 +61,7 @@ At the moment, the following functions are presented:
 **Percentage of core compression**, percentage of compression in the core      
 **Linear Correction Factor**, estimate the linear correction factor that can be applied assuming the same compression through all the core
 
-## 2. *bc_decomp*
+### 2. *bc_decomp*
 
 *bc_decomp* uses six arguments  
 
@@ -67,7 +89,7 @@ The output is a dataframe that use the same "ID" of the data provided. For each 
 `c_org_density`, density of organic carbon concentration expressed in g/cm<sup>3</sup>           
 `c_org_dens_sect`, density of organic carbon concentration of each section expressed in g/cm<sup>2</sup>      
 
-## 3. *bc_stock* (work in progress)
+### 3. *bc_stock* (work in progress)
 
 *bc_stock* calculates carbon stock 
 
