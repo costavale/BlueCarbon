@@ -1,6 +1,6 @@
 [![DOI](https://zenodo.org/badge/336005552.svg)](https://zenodo.org/badge/latestdoi/336005552)
 
-# blue_carbon
+# BlueCarbon
 
 The blue_carbon repository is a collection of functions with the main focus to help "blue carbon" scientists
 
