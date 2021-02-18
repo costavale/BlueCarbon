@@ -30,9 +30,11 @@ The data is expected to follow [tidy data format](https://cran.r-project.org/web
 Here is a visual representation of what that would look like:
 
 **Table of cores**
+
 ![core-table](assets/core-table.png)
 
 **Table of samples**
+
 ![sample-table](assets/sample-table.png)
 
 Notice how the column used to identify the sediment cores is present in both tables. This is important, as it a key to identify the core from which a sample originated from.
