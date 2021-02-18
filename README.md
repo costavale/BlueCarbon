@@ -2,7 +2,7 @@
 
 # BlueCarbon
 
-The blue_carbon repository is a collection of functions with the main focus to help "blue carbon" scientists
+The BlueCarbon repository is a collection of functions with the main focus to help "blue carbon" scientists
 
 The following packages need to be installed and loaded:
 - *tidyverse*
