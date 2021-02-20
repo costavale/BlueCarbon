@@ -63,13 +63,6 @@ correct_compression <- function(
       decomp$volume <- (((pi * (diameter/2)^2) * decomp$sect_h)/2) #volume is divided by two as half section is used
       decomp$density <- data$weight/decomp$volume
       
-      c <- as.numeric(coef(lm(c_org~LOI, data = data))[1])
-      d <- as.numeric(coef(lm(c_org~LOI, data = data))[2])
-      
-      decomp$c_org_est <- (data$LOI * d) + c
-      decomp$c_org_density <- decomp$density * (decomp$c_org_est/100)
-      decomp$c_org_dens_sect <- decomp$c_org_density * decomp$sect_h
-      
       return(decomp)
     }
     
@@ -87,14 +80,6 @@ correct_compression <- function(
       decomp$sect_h <- c(first(decomp$cm_deco), diff(decomp$cm_deco))
       decomp$volume <- (((pi * (diameter/2)^2) * decomp$sect_h)/2) #volume is divided by two as half section is used
       decomp$density <- data$weight/decomp$volume
-      
-      c <- as.numeric(coef(lm(c_org~LOI, data = data))[1])
-      d <- as.numeric(coef(lm(c_org~LOI, data = data))[2])
-      
-      decomp$c_org_est <- (data$LOI * d) + c
-      decomp$c_org_density <- decomp$density * (decomp$c_org_est/100)
-      decomp$c_org_dens_sect <- decomp$c_org_density * decomp$sect_h
-      
       return(decomp)
     }
   }
