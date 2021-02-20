@@ -53,7 +53,7 @@ Notice how the column used to identify the sediment cores is present in both tab
 ## Suggested changes to functions:
 
 I think it might be easier to break down the package into more functions, which would work in order, as such:
-1. Estimate core compaction. Currently done in `bc_decomp`.
+1. Estimate core compaction. Currently done in `bc_comp`.
 	- User provides a data.frame and columns for compaction rate and compaction correction rates are added. These columns are then used in function 2 
 2. Correct sample depth and sample volume to account for compaction (linear and exponential methods). Currently done in `bc_decomp`
 	- User provides the core data.frame from `1` and another data.frame with the sample data. User can specify if the sample volume is estimated from a half of the core or if the sample volume was measured in another way.
