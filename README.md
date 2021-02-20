@@ -43,7 +43,7 @@ Notice how the column used to identify the sediment cores is present in both tab
 
 ## Suggested changes to names:
 
-![core-extraction](assets/core-extraction-png)
+![core-extraction](assets/core-extraction.png)
 
 1. tube_length ==> sampler_length
 2. core_in ==> internal_distance
