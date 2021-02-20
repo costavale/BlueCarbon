@@ -53,12 +53,13 @@ Notice how the column used to identify the sediment cores is present in both tab
 ## Suggested changes to functions:
 
 I think it might be easier to break down the package into more functions, which would work in order, as such:
-1. Estimate core compaction. Currently done in `bc_comp`.
-	- User provides a data.frame and columns for compaction rate and compaction correction rates are added. These columns are then used in function 2 
-2. Correct sample depth and sample volume to account for compaction (linear and exponential methods). Currently done in `bc_decomp`
-	- User provides the core data.frame from `1` and another data.frame with the sample data. User can specify if the sample volume is estimated from a half of the core or if the sample volume was measured in another way.
-3. Estimate carbon content from LOI, using pre-measured values. Currently done in `bc_decomp`
-	- User can provide some measurements of carbon content and organic matter. The OC content of samples where OC was NOT measured is then added (when OC was measured, that value is maintained). Also allows the user to provide more data that just the one being analyzed (if you are analyzing cores from one area but have more samples with measured OC contents and wnat to use them in your model)
+1. `bc_comp`- basically keep it as is, just change so that user provides a data.frame and columns for compaction rate and compaction correction rates are added. These columns are then used in function 2.
+2. Break down `bc_decomp`in 2 functions:
+	2.1 Correct sample depth and sample volume to account for compaction (linear and exponential methods). Currently done in `bc_decomp`
+		- User provides the core data.frame from `1` and another data.frame with the sample data. User can specify if the sample volume is estimated from a half of the core or if the sample volume was measured in another way.
+	2.2 Estimate carbon content from LOI, using pre-measured values. Currently done in `bc_decomp`
+		- User can provide some measurements of carbon content and organic matter. The OC content of samples where OC was NOT measured is then added (when OC was measured, that value is maintained). Also allows the user to provide more data that just the one being analyzed (if you are analyzing cores from one area but have more samples with measured OC contents and wnat to use them in your model)
+	2.3 Add dry bulk density and carbon concentation (g cm3)
 
 ## Contents
 
