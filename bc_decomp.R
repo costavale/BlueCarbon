@@ -1,15 +1,55 @@
-bc_decomp <- function(
+# Correct sample depth and sample volume to account for compression of the sediment core
+# Takes in 2 data.frames: one with the sample properties and one with the core properties
+
+
+correct_compression <- function(
   sample_data,             
   core_data,
   core_id,
   sample_depth,
-  sample_volume = NULL,     # If sample_volume is measured, diameter is not used
-  diameter,          
+  sample_volume = "half-core",  
+  core_diameter,
+  slice_height,
   method = "linear") {
   
   if(!all(is.data.frame(sample_data), is.data.frame(core_data))){
     stop("data is not a data.frame")
   }
+  
+  # Calculate uncorrected sample volume 
+    # If the sample volume is estimated from half-core
+  if(sample_volume == "half-core"){ 
+    # check that the diameter column is present in the core_data
+    if(!core_diameter %in% names(core_data)){
+      stop("Core diameter column does not exist in sample_data")
+    }
+    if(!slice_height %in% names(sample_data)){
+      stop("Slice height column does not exist in sample_data")
+    }
+    
+    sample_data_tmp <- merge(
+      sample_data, 
+      core_data[, c(core_id, core_diameter)],
+      by = core_id
+    )
+    
+    sample_data_tmp$sample_volume <- pi    *   # pi
+      (sample_data_tmp[, core_diameter]/2) *   # radius
+      (sample_data[, slice_height])    /       # slice height
+      2                                        # cut slice in half
+    # If the sample volume was given as a column in sample_data
+  } else {
+    if(!sample_volume %in% names(sample_data)){
+      stop("Sample volume column does not exist in sample_data")
+    }
+    sample_data_tmp <- sample_data
+  }
+  
+  # Add compaction correction factors to the sample_data
+  sample_data_tmp <- merge(
+    sample_data_tmp,
+    core_data[,c(core_id, compaction_correction_factor)]
+  )
   
     if(method == "linear") {
       

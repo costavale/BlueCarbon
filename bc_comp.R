@@ -1,4 +1,6 @@
-# This function accepts a data.frame, which should contain:
+# Estimate compaction rate and compaction correction factor for sediment cores
+# Accepts a data.frame with core properties and returns a modified version 
+# of it, with the addition of the estimated parameters
 # 1. tube_length: length of the sampling tube used 
 # 2. internal_distance: distance between sampler top and the sediment core surface
 # 3. external_distance: distance between sampler top and the sediment column surface
@@ -7,7 +9,7 @@ bc_comp <- function(data, tube_length, internal_distance, external_distance){
   if(!is.data.frame(data)){
     stop("data is not a data.frame")
   }
-  # try to cast variables to numeric, if needed
+  # Stop if any of the required variables are not numeric
   if(!all(is.numeric(data[, tube_length]),
           is.numeric(data[, internal_distance]),
           is.numeric(data[, external_distance])
