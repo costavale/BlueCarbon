@@ -1,7 +1,7 @@
 Package: BlueCarbon
 Title: Collection of functions for "Blue Carbon" scientists
-Version: 0.0.0.9000
-Authors@R: 
+Version: 0.0.1.beta
+Authors@R:
     person(given = "Valentina",
            family = "Costa",
            role = c("aut", "cre"),
