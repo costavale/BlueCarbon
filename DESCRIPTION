@@ -1,5 +1,5 @@
 Package: BlueCarbon
-Title: What the Package Does (One Line, Title Case)
+Title: Collection of functions for "Blue Carbon" scientists
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Valentina",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "vale.costa@gmail.com",
            comment = c(ORCID = "0000-0002-1513-0284"))
-Description: What the package does (one paragraph).
+Description: The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8
