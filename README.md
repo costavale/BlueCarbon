@@ -2,9 +2,9 @@
 
 # BlueCarbon
 
-The BlueCarbon repository is a collection of functions with the main focus to help "blue carbon" scientists
+The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists
 
-The following packages are required:
+The following packages need to be installed and loaded:
 - *tidyverse*
 - *drc*
 - *aomisc*
@@ -17,11 +17,13 @@ remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
 library(aomisc)
 ```
 
-At the moment, the following functions are presented:
+The following functions are presented:
 1.  *bc_comp*
 2.  *bc_decomp*
 3.  *bc_stock* (work in progress)
-
+4.  ...        
+           
+          
 ## 1. *bc_comp*
 
 *bc_comp* calculates the **Percentage of core compression** and the **Linear Correction Factor** using three arguments 
