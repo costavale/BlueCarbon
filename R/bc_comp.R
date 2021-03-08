@@ -1,25 +1,42 @@
-#' Calculates Percentage of core compression and Linear Correction Factor
-#'
-#' This function calculates the Percentage of core compression and the Linear Correction Factor using three arguments.
-#' @param tube_lenght The lenght in cm of the sampler.
-#' @param core_in The lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler).
-#' @param core_out The lenght in cm of the part of the sampler left outside of the sediment (from the outside of the sampler).
-#' @return Percentage of core compression and the Linear Correction Factor.
-#' @export
-#' @examples
-#' bc_comp(200, 48, 25)
+#' Estimate compaction rate for cores
+#' Accepts a data.frame with core properties and returns a modified version
+#' of it, with the addition of the estimated parameters
+#' @param tube_length: name for column with length of the sampling tube used
+#' @param internal_distance: name for column with distance between sampler top and the sediment core surface
+#' @param external_distance: name for column with distance between sampler top and the sediment column surface
 
-bc_comp <-
-  function(tube_lenght, core_in, core_out) {
-
-    ## compute percentage of core compression
-    compr <- (core_in - core_out) * 100 / (tube_lenght - core_out)
-
-    ## compute correction factor
-    corr <- (tube_lenght - core_in) / (tube_lenght - core_out)
-
-    output <- list("Percentage of core compression" = compr,
-                    "Linear Correction factor" = corr)
-
-    return(output)
+calculate_core_compaction <- function(
+  data,
+  tube_length,
+  internal_distance,
+  external_distance
+){
+  if(!is.data.frame(data)){
+    stop("data is not a data.frame")
   }
+  # Stop if any of the required variables are not numeric
+  if(!all(is.numeric(data[, tube_length]),
+          is.numeric(data[, internal_distance]),
+          is.numeric(data[, external_distance])
+  )){
+    non_numeric <- !sapply(
+      X = list(data[, tube_length], data[, internal_distance], data[, external_distance]),
+      FUN = is.numeric)
+    
+    var_names <- c(tube_length, internal_distance, external_distance)
+    
+    stop("The following variables are not numeric:\n",
+         paste(var_names[which(non_numeric)], sep = "\n"))
+  }
+  
+  # estimate compaction correction factor
+  compaction_correction_factor <-
+    (data[, tube_length] - data[, internal_distance]) /
+    (data[, tube_length] - data[,external_distance])
+  
+  
+  # compaction rate as percentage
+  data$compression_rate <- (1 - compaction_correction_factor) * 100
+  
+  return(data)
+}
