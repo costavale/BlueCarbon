@@ -15,6 +15,11 @@
 bc_decomp <-
   function(data, tube_lenght, core_in, core_out, diameter, method = "linear") {
 
+    if(!(method %in% c("linear", "exp"))) {
+
+          return("Method must be either 'linear' or 'exp'")
+        }
+        
     if(method == "linear") {
 
       decomp <- data.frame(data$ID)
