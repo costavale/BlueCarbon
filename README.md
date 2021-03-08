@@ -79,7 +79,6 @@ The following functions are presented:
 4.  ...        
           
 ## 1. *bc_comp*
->>>>>>> upstream/main
 
 *bc_comp* calculates the **Percentage of core compression** and the **Linear Correction Factor** using three arguments 
 
