@@ -4,8 +4,6 @@
 
 The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists
 
-<<<<<<< HEAD
-
 
 ## Setup
 =======
@@ -23,7 +21,6 @@ remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
 library(aomisc)
 ```
 
-<<<<<<< HEAD
 ## Data format expected
 TODO: Add information about expected variables, how they should be measured, etc.
 
