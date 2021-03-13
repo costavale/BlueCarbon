@@ -1,6 +1,6 @@
 Package: BlueCarbon
 Title: Collection of functions for "Blue Carbon" scientists
-Version: 0.0.1.beta
+Version: 0.0.1.1
 Authors@R:
     person(given = "Valentina",
            family = "Costa",
