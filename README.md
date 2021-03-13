@@ -4,6 +4,8 @@
 
 The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists
 
+## Setup
+
 The following packages need to be installed and loaded:
 - *tidyverse*
 - *drc*
@@ -17,31 +19,75 @@ remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
 library(aomisc)
 ```
 
+## Expected data format
+
+To use the functions collected here, you need to provide 2 main datasets:
+1. Sediment core properties
+2. Sediment sample properties (WORK IN PROGRESS)
+
+The data is expected to follow [tidy data format](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html), with one observation per row and one variable per column.
+
+**Sediment core properties**
+
+![core-table](assets/core-table.png)
+
+In particular, for each core **Core_ID** the following information need to be provided  
+1. sampler_length, total lenght of the sampler
+2. internal_distance, distance between sampler top and core surface
+3. external_distance, distance between sampler top and sediment surface
+
+![core-extraction](assets/core-extraction.png)
+
+```
+**Sediment sample properties**
+
+![sample-table](assets/sample-table.png)
+
+**Important**: the column used to identify the sediment cores **Core_ID** is present in both data.frame as it a key to identify the core from which a sample is originated.
+Sample_ID
+Variable_1
+Variable_2
+```
+
+## Contents
+
 The following functions are presented:
-1.  *bc_comp*
+1.  *bc_compaction*
 2.  *bc_decomp*
 3.  *bc_stock* (work in progress)
 4.  ...        
            
           
-## 1. *bc_comp*
+### 1. *bc_compaction*
 
-*bc_comp* calculates the **Percentage of core compression** and the **Linear Correction Factor** using three arguments 
+The user provides a data.frame and the function calculates **compaction rates** (in percentage) adding a column in the data.frame.       
+The function uses four arguments     
 
-`bc_comp(tube_lenght, core_in, core_out)`
+`bc_compaction(data, sampler_lenght, internal_distance, external_distance)`
 
 #### Arguments
-
-- `tube_length` lenght in cm of the sampler,
-- `core_in` lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler),
-- `core_out`lenght in cm of the part of the sampler left outside of the sediment (from the outside of the sampler)
+- `data` data.frame with core properties
+          
+- `sampler_lenght` name of the column with the lenght of the sampler,
+- `internal_distance` name of the column with the distance between sampler top and core surface,
+- `external_distance` name of the column with the distance between sampler top and sediment surface
 
 #### Output
 
-**Percentage of core compression**, percentage of compression in the core      
-**Linear Correction Factor**, estimate the linear correction factor that can be applied assuming the same compression through all the core
+**compaction rates**, percentage of compression in the core      
 
-## 2. *bc_decomp*
+
+### 2. *bc_decomp*
+
+```
+Suggestions:
+Break down in 2 functions:  
+1. Correct sample depth and sample volume to account for compaction (linear and exponential methods). Currently done in `bc_decomp`
+		- User provides the core data.frame from `1` and another data.frame with the sample data. User can specify if the sample volume is estimated from a half of the core or if the sample volume was measured in another way.
+2. Estimate carbon content from LOI, using pre-measured values. Currently done in `bc_decomp`
+		- User can provide some measurements of carbon content and organic matter. The OC content of samples where OC was NOT measured is then added (when OC was measured, that value is maintained). Also allows the user to provide more data that just the one being analyzed (if you are analyzing cores from one area but have more samples with measured OC contents and wnat to use them in your model)
+2.1 Add dry bulk density and carbon concentation (g cm3)
+```
 
 *bc_decomp* uses six arguments  
 
@@ -49,7 +95,7 @@ The following functions are presented:
 
 #### Arguments
 
-- `data` dataframe with the following columns "ID"	"cm"	"weight"	"LOI"	"c_org"
+- `data` data.frame with the following columns "ID"	"cm"	"weight"	"LOI"	"c_org"
 
 - `tube_length` lenght in cm of the sampler,
 - `core_in` lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler),
@@ -59,7 +105,7 @@ The following functions are presented:
 
 #### Output
 
-The output is a dataframe that use the same "ID" of the data provided. For each row, the following information are calculated: 
+The output is a data.frame that use the same "ID" of the data provided. For each row, the following information are calculated: 
 
 `cm_deco`, decompressed depth of each section expressed in cm    
 `sect_h`, height of each section expressed in cm     
@@ -69,7 +115,7 @@ The output is a dataframe that use the same "ID" of the data provided. For each 
 `c_org_density`, density of organic carbon concentration expressed in g/cm<sup>3</sup>           
 `c_org_dens_sect`, density of organic carbon concentration of each section expressed in g/cm<sup>2</sup>      
 
-## 3. *bc_stock* (work in progress)
+### 3. *bc_stock* (work in progress)
 
 *bc_stock* calculates carbon stock 
 
@@ -77,8 +123,7 @@ The output is a dataframe that use the same "ID" of the data provided. For each 
 
 #### Arguments
 
-- `data` dataframe with the following columns "ID", "cm_deco", "c_org_dens_sect"     
+- `data` data.frame with the following columns "ID", "cm_deco", "c_org_dens_sect"     
 
 - `depth` used to standardize the amount of carbon stored. Default is 1 m
 
-Every suggestions/comments/changes to improve all the codes are welcome :)
