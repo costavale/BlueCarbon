@@ -4,7 +4,7 @@
 
 The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists
 
-## Setup
+## Installation
 
 The following packages need to be installed and loaded:
 - *tidyverse*
@@ -17,6 +17,11 @@ library("drc")
 install.packages("remotes") # only the first time
 remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
 library(aomisc)
+```
+
+Install the BlueCarbon package:
+```
+devtools::install_github("valybionda/BlueCarbon")
 ```
 
 ## Expected data format
