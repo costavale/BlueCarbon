@@ -19,12 +19,6 @@ bc_decomp(data, tube_lenght, core_in, core_out, diameter, method = "linear")
 
 \item{method}{used to estimate the decompressed depth of each section, "linear" or "exp". Default is "linear".}
 }
-\value{
-
-}
 \description{
 This function uses six arguments
-}
-\examples{
-bc_decomp(data, 200, 48, 25, 6.9, method = "linear")
 }

@@ -9,8 +9,8 @@ Authors@R:
            comment = c(ORCID = "0000-0002-1513-0284"))
 Description: The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists.
 License: file LICENSE
-Imports: tidyverse, drc, aomisc
 Encoding: UTF-8
 LazyData: true
+Suggests: dplyr, drc, aomisc
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1

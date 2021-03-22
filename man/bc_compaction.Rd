@@ -7,23 +7,16 @@
 bc_compaction(data, sampler_length, internal_distance, external_distance)
 }
 \arguments{
-\item{sampler_length:}{name of the column with the total length of the sampler tube}
+\item{sampler_length}{name of the column with the total length of the sampler tube}
 
-\item{internal_distance:}{name of the column with distance between sampler top and core surface}
+\item{internal_distance}{name of the column with distance between sampler top and core surface}
 
-\item{external_distance:}{name of the column with distance between sampler top and sediment surface}
+\item{external_distance}{name of the column with distance between sampler top and sediment surface}
 }
 \value{
-Percentage of core compression
+the initial data.frame with the addition of Percentage of core compression
 }
 \description{
 Accepts a data.frame with core properties and returns a modified version
 of it, with the addition of the estimated parameters
-}
-\examples{
-bc_compaction(data = data, 
- sampler_length = "sampler_lenght",
- internal_distance = "internal_distance",
- external_distance = "external_distance"
-)
 }
