@@ -3,6 +3,7 @@
 #' Accepts a data.frame with core properties and returns a modified version
 #' of it, with the addition of the estimated parameters
 #' 
+#' @param data data.frame with core properties
 #' @param sampler_length name of the column with the total length of the sampler tube
 #' @param internal_distance name of the column with distance between sampler top and core surface
 #' @param external_distance name of the column with distance between sampler top and sediment surface

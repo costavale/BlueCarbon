@@ -7,6 +7,8 @@
 bc_compaction(data, sampler_length, internal_distance, external_distance)
 }
 \arguments{
+\item{data}{data.frame with core properties}
+
 \item{sampler_length}{name of the column with the total length of the sampler tube}
 
 \item{internal_distance}{name of the column with distance between sampler top and core surface}
