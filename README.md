@@ -34,19 +34,19 @@ The data is expected to follow [tidy data format](https://cran.r-project.org/web
 
 **Sediment core properties**
 
-![core-table](assets/core-table.png)
+![core-table](vignettes/core-table.png)
 
 In particular, for each core **Core_ID** the following information need to be provided  
 1. sampler_length, total lenght of the sampler
 2. internal_distance, distance between sampler top and core surface
 3. external_distance, distance between sampler top and sediment surface
 
-![core-extraction](assets/core-extraction.png)
+![core-extraction](vignettes/core-extraction.png)
 
 ```
 **Sediment sample properties**
 
-![sample-table](assets/sample-table.png)
+![sample-table](vignettes/sample-table.png)
 
 **Important**: the column used to identify the sediment cores **Core_ID** is present in both data.frame as it a key to identify the core from which a sample is originated.
 Sample_ID

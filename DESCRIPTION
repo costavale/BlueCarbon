@@ -8,8 +8,8 @@ Authors@R:
            email = "vale.costa@gmail.com",
            comment = c(ORCID = "0000-0002-1513-0284"))
 Description: The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+License: file LICENSE
+Imports: tidyverse, drc, aomisc
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
