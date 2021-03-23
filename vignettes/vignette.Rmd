@@ -17,3 +17,91 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(BlueCarbon)
 ```
+
+# BlueCarbon
+
+The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists
+
+## Installation
+
+The following packages need to be installed and loaded:
+
+\- *tidyverse*
+
+\- *drc*
+
+\- *aomisc*
+
+```{r}
+#library("tidyverse")
+#library("drc")
+#install.packages("remotes") # only the first time
+#remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
+#library("aomisc")
+```
+
+Install the BlueCarbon package:
+
+```{r}
+#devtools::install_github("valybionda/BlueCarbon")
+```
+
+## Expected data format
+
+To use the functions collected here, you need to provide 2 main datasets:
+
+1.  Sediment core properties
+
+2.  Sediment sample properties (WORK IN PROGRESS)
+
+The data is expected to follow [tidy data format](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html), with one observation per row and one variable per column.
+
+**Sediment core properties**
+
+![](core-table.png "Sediment core properties")
+
+In particular, for each core **Core_ID** the following information need to be provided
+
+1\. sampler_length, total lenght of the sampler
+
+2\. internal_distance, distance between sampler top and core surface
+
+3\. external_distance, distance between sampler top and sediment surface
+
+![](core-extraction.png)
+
+## Contents
+
+The following functions are presented:
+
+1.  **bc_compaction**
+
+2.  **bc_decomp**
+
+3.  **bc_stock** (work in progress)
+
+4.  ...
+
+### **1. bc_compactio**n
+
+The user provides a data.frame and the function calculates \*\*compaction rates\*\* (in percentage) adding a column in the data.frame.
+
+The function uses four arguments
+
+```{r}
+#bc_compaction(data, sampler_lenght, internal_distance, external_distance)
+```
+
+#### Arguments
+
+-   \`data\` data.frame with core properties
+
+-   \`sampler_lenght\` name of the column with the lenght of the sampler,
+
+-   \`internal_distance\` name of the column with the distance between sampler top and core surface,
+
+-   \`external_distance\` name of the column with the distance between sampler top and sediment surface
+
+#### Output
+
+**compaction rates**, percentage of compression in the core
