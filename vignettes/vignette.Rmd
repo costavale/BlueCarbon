@@ -26,11 +26,11 @@ The BlueCarbon package is a collection of functions with the main focus to help 
 
 The following packages need to be installed and loaded:
 
-\- *tidyverse*
+-   *tidyverse*
 
-\- *drc*
+-   *drc*
 
-\- *aomisc*
+-   *aomisc*
 
 ```{r}
 #library("tidyverse")
