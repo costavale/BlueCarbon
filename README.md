@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/336005552.svg)](https://zenodo.org/badge/latestdoi/336005552)  ![GitHub all releases](https://img.shields.io/github/downloads/valybionda/BlueCarbon/total)
+[![DOI](https://zenodo.org/badge/336005552.svg)](https://zenodo.org/badge/latestdoi/336005552) 
 
 # BlueCarbon
 
