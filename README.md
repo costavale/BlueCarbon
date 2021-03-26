@@ -21,7 +21,7 @@ library(aomisc)
 
 Install the BlueCarbon package:
 ```
-devtools::install_github("valybionda/BlueCarbon")
+devtools::install_github("valybionda/BlueCarbon", build_vignettes = TRUE)
 ```
 
 ## Expected data format
