@@ -19,7 +19,7 @@ remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
 library(aomisc)
 ```
 
-Install the BlueCarbon package:
+Install the BlueCarbon package (and the vignettes):
 ```
 devtools::install_github("valybionda/BlueCarbon", build_vignettes = TRUE)
 ```
