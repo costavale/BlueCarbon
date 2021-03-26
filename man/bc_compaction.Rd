@@ -2,7 +2,12 @@
 % Please edit documentation in R/bc_compaction.R
 \name{bc_compaction}
 \alias{bc_compaction}
-\title{Calculates Percentage of core compression for cores}
+\title{bc_compaction
+
+Calculates Percentage of core compression for cores
+
+Accepts a data.frame with core properties and returns a modified version
+of it, with the addition of the estimated parameters}
 \usage{
 bc_compaction(data, sampler_length, internal_distance, external_distance)
 }
@@ -19,6 +24,10 @@ bc_compaction(data, sampler_length, internal_distance, external_distance)
 the initial data.frame with the addition of Percentage of core compression
 }
 \description{
+bc_compaction
+
+Calculates Percentage of core compression for cores
+
 Accepts a data.frame with core properties and returns a modified version
 of it, with the addition of the estimated parameters
 }

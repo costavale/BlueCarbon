@@ -4,18 +4,25 @@
 \alias{bc_decomp}
 \title{bc_decomp}
 \usage{
-bc_decomp(data, tube_lenght, core_in, core_out, diameter, method = "linear")
+bc_decomp(
+  data,
+  sampler_lenght,
+  internal_distance,
+  external_distance,
+  sampler_diameter,
+  method = "linear"
+)
 }
 \arguments{
 \item{data}{dataframe with the following columns "ID" "cm" "weight" "LOI" "c_org".}
 
-\item{tube_lenght}{The lenght in cm of the sampler.}
+\item{sampler_lenght}{name of the column with the total length of the sampler tube}
 
-\item{core_in}{The lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler).}
+\item{internal_distance}{The lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler).}
 
-\item{core_out}{The lenght in cm of the part of the sampler left outside of the sediment (from the outside of the sampler).}
+\item{external_distance}{The lenght in cm of the part of the sampler left outside of the sediment (from the outside of the sampler).}
 
-\item{diameter}{in cm of the sampler}
+\item{sampler_diameter}{diameter in cm of the sampler}
 
 \item{method}{used to estimate the decompressed depth of each section, "linear" or "exp". Default is "linear".}
 }
