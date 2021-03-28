@@ -4,7 +4,12 @@
 \alias{bc_compaction}
 \title{bc_compaction}
 \usage{
-bc_compaction(core_data, sampler_length, internal_distance, external_distance)
+bc_compaction(
+  core_data,
+  sampler_length = "sampler_lenght",
+  internal_distance = "internal_distance",
+  external_distance = "external_distance"
+)
 }
 \arguments{
 \item{core_data}{data.frame with core properties}
