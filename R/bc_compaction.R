@@ -1,31 +1,30 @@
 #' @title bc_compaction
 #' 
-#' Calculates Percentage of core compression for cores
-#'
+#' @description Calculates Percentage of core compression for cores
 #' Accepts a data.frame with core properties and returns a modified version
 #' of it, with the addition of the estimated parameters
 #' 
-#' @param data data.frame with core properties
+#' @param core_data data.frame with core properties
 #' @param sampler_length name of the column with the total length of the sampler tube
 #' @param internal_distance name of the column with distance between sampler top and core surface
 #' @param external_distance name of the column with distance between sampler top and sediment surface
 #' @return the initial data.frame with the addition of Percentage of core compression
 
 bc_compaction <- 
-  function(data,
-           sampler_length,
-           internal_distance,
-           external_distance) {
+  function(core_data,
+           sampler_length = "sampler_lenght",
+           internal_distance = "internal_distance",
+           external_distance = "external_distance") {
     
     # Stop if data is not a data.frame
-  if (!is.data.frame(data)) {
-    stop("data is not a data.frame")
+  if (!is.data.frame(core_data)) {
+    stop("core_data is not a data.frame")
   }
   # Stop if any of the required variables are not numeric
-  if (!all(is.numeric(data[, sampler_length]),
-           is.numeric(data[, internal_distance]),
-           is.numeric(data[, external_distance]))) {
-    non_numeric <- !sapply(X = list(data[, sampler_length], data[, internal_distance], data[, external_distance]),
+  if (!all(is.numeric(core_data[, sampler_length]),
+           is.numeric(core_data[, internal_distance]),
+           is.numeric(core_data[, external_distance]))) {
+    non_numeric <- !sapply(X = list(core_data[, sampler_length], core_data[, internal_distance], core_data[, external_distance]),
                            FUN = is.numeric)
     
     var_names <-
@@ -37,12 +36,12 @@ bc_compaction <-
   
   # estimate compaction correction factor
   compaction_correction_factor <-
-    (data[, sampler_length] - data[, internal_distance]) /
-    (data[, sampler_length] - data[, external_distance])
+    (core_data[, sampler_length] - core_data[, internal_distance]) /
+    (core_data[, sampler_length] - core_data[, external_distance])
   
   
   # compaction rate as percentage
-  data$compression_rate <- (1 - compaction_correction_factor) * 100
+  core_data$compression_rate <- (1 - compaction_correction_factor) * 100
   
-  return(data)
+  return(core_data)
 }
