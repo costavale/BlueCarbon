@@ -12,15 +12,18 @@ The following packages need to be installed and loaded:
 - *aomisc*
 
 ```
+install.packages("devtools") # only the first time
+devtools::install_github("OnofriAndreaPG/aomisc") # only the first time
+
+library("aomisc")
 library("tidyverse")
 library("drc")
-install.packages("remotes") # only the first time
-remotes::install_github("OnofriAndreaPG/aomisc") # only the first time
-library(aomisc)
 ```
 
 Install the BlueCarbon package (and the vignettes):
 ```
+# You can install BlueCarbon from GitHub
+
 devtools::install_github("valybionda/BlueCarbon", build_vignettes = TRUE)
 ```
 
