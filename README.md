@@ -12,8 +12,11 @@ The following packages need to be installed and loaded:
 - *aomisc*
 
 ```
+install.packages("tidyverse")
+install.packages("drc")
+
 install.packages("devtools") # only the first time
-devtools::install_github("OnofriAndreaPG/aomisc") # only the first time
+devtools::install_github("OnofriAndreaPG/aomisc")
 
 library("aomisc")
 library("tidyverse")
