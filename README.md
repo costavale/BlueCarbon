@@ -25,7 +25,7 @@ library("drc")
 
 Install the BlueCarbon package (and the vignettes):
 ```
-# You can install BlueCarbon from GitHub
+# You can install the BlueCarbon package from GitHub
 
 devtools::install_github("valybionda/BlueCarbon", build_vignettes = TRUE)
 ```
