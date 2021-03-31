@@ -40,14 +40,14 @@ The data is expected to follow [tidy data format](https://cran.r-project.org/web
 
 **Sediment core properties**
 
-![core-table](vignettes/core-table.png)
+<img src="vignettes/core-table.png" alt="core-table" width="600"/>
 
 In particular, for each core **Core_ID** the following information need to be provided  
 1. sampler_length, total lenght of the sampler
 2. internal_distance, distance between sampler top and core surface
 3. external_distance, distance between sampler top and sediment surface
 
-![core-extraction](vignettes/core-extraction.png)
+<img src="vignettes/core-extraction.png" alt="core-extraction" width="300"/>
 
 ```
 **Sediment sample properties**
