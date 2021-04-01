@@ -40,7 +40,6 @@ bc_depth_correction <-
     
     if (method == "linear") {
       
-      
       decomp <- data.frame(data$ID)
       decomp$cm_obs <- data$cm + ((sampler_lenght - external_distance) - (sampler_lenght - internal_distance))
       
@@ -51,17 +50,11 @@ bc_depth_correction <-
       decomp$volume <- (((pi * (sampler_diameter/2)^2) * decomp$sect_h)/2) #volume is divided by two as half section is used
       decomp$density <- data$weight/decomp$volume
       
-      c <- as.numeric(stats::coef(stats::lm(c_org~LOI, data = data))[1])
-      d <- as.numeric(stats::coef(stats::lm(c_org~LOI, data = data))[2])
-      
-      decomp$c_org_est <- (data$LOI * d) + c
-      decomp$c_org_density <- decomp$density * (decomp$c_org_est/100)
-      decomp$c_org_dens_sect <- decomp$c_org_density * decomp$sect_h
-      
       return(decomp)
     }
     
     if(method == "exp") {
+      
       test <- data.frame(x = c(((sampler_lenght - external_distance) - (sampler_lenght - internal_distance)), (sampler_lenght - external_distance)),
                          y = c(((sampler_lenght - external_distance) - (sampler_lenght - internal_distance)), 0.1))
       
@@ -75,13 +68,6 @@ bc_depth_correction <-
       decomp$sect_h <- c(dplyr::first(decomp$cm_deco), diff(decomp$cm_deco))
       decomp$volume <- (((pi * (sampler_diameter/2)^2) * decomp$sect_h)/2) #volume is divided by two as half section is used
       decomp$density <- data$weight/decomp$volume
-      
-      c <- as.numeric(stats::coef(stats::lm(c_org~LOI, data = data))[1])
-      d <- as.numeric(stats::coef(stats::lm(c_org~LOI, data = data))[2])
-      
-      decomp$c_org_est <- (data$LOI * d) + c
-      decomp$c_org_density <- decomp$density * (decomp$c_org_est/100)
-      decomp$c_org_dens_sect <- decomp$c_org_density * decomp$sect_h
       
       return(decomp)
     }
