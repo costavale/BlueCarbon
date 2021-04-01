@@ -32,7 +32,7 @@ devtools::install_github("valybionda/BlueCarbon", build_vignettes = TRUE)
 
 ## Expected data format
 
-To use the functions collected here, you need to provide 2 main datasets:
+To use the functions collected here, you need to provide 2 datasets:
 1. Sediment core properties
 2. Sediment sample properties (WORK IN PROGRESS)
 
@@ -43,7 +43,7 @@ The data is expected to follow [tidy data format](https://cran.r-project.org/web
 <img src="vignettes/core-table.png" alt="core-table" width="600"/>
 
 In particular, for each core **Core_ID** the following information need to be provided  
-1. sampler_length, total lenght of the sampler
+1. sampler_length, total length of the sampler
 2. internal_distance, distance between sampler top and core surface
 3. external_distance, distance between sampler top and sediment surface
 
@@ -79,7 +79,7 @@ The function uses four arguments
 #### Arguments
 - `data` data.frame with core properties
           
-- `sampler_lenght` name of the column with the lenght of the sampler,
+- `sampler_lenght` name of the column with the length of the sampler,
 - `internal_distance` name of the column with the distance between sampler top and core surface,
 - `external_distance` name of the column with the distance between sampler top and sediment surface
 
@@ -108,9 +108,9 @@ Break down in 2 functions:
 
 - `data` data.frame with the following columns "ID"	"cm"	"weight"	"LOI"	"c_org"
 
-- `tube_length` lenght in cm of the sampler,
-- `core_in` lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler),
-- `core_out`lenght in cm of the part of the sampler left outside of the sediment (from the outside of the sampler),
+- `tube_length` length in cm of the sampler,
+- `core_in` length in cm of the part of the sampler left outside of the sediment (from the inside of the sampler),
+- `core_out`length in cm of the part of the sampler left outside of the sediment (from the outside of the sampler),
 - `diameter` in cm of the sampler
 - `method` used to estimate the decompressed depth of each section, "linear" or "exp". Default is "linear"
 
