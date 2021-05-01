@@ -19,13 +19,15 @@ bc_depth_correction(
 
 \item{sample_data}{data.frame with sample properties}
 
+\item{sampler_lenght}{name of the column with the total length of the sampler tube}
+
 \item{sampler_diameter}{name of the column with the diameter of the sampler tube}
 
 \item{internal_distance}{name of the column with distance between sampler top and core surface}
 
 \item{external_distance}{name of the column with distance between sampler top and sediment surface}
 
-\item{sampler_length}{name of the column with the total length of the sampler tube}
+\item{method}{linear or exponential correction}
 }
 \value{
 the initial data.frame with the addition of the corrected sample depth and volume
