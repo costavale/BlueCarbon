@@ -3,7 +3,7 @@
 
 # BlueCarbon
 
-The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists
+**BlueCarbon** is a collection of functions with the main focus to help "blue carbon" scientists
 
 ## Installation
 
