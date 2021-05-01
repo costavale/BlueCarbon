@@ -39,7 +39,7 @@ devtools::install_github("valybionda/BlueCarbon", build_vignettes = TRUE)
 
 To use the functions collected here, you need to provide 2 datasets:
 1. Sediment core properties
-2. Sediment sample properties (WORK IN PROGRESS)
+2. Sediment sample properties
 
 The data is expected to follow [tidy data format](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html), with one observation per row and one variable per column.
 
@@ -54,24 +54,28 @@ In particular, for each core **Core_ID** the following information need to be pr
 
 <img src="vignettes/core-extraction.png" alt="core-extraction" width="300"/>
 
-```
+
 **Sediment sample properties**
 
 ![sample-table](vignettes/sample-table.png)
 
-**Important**: the column used to identify the sediment cores **Core_ID** is present in both data.frame as it a key to identify the core from which a sample is originated.
-Sample_ID
-Variable_1
-Variable_2
-```
+1. Core_ID, **Important** this column is present in both data.frame to identify the sediment cores and it's the key to identify the core from which a sample is originated.
+2. sample_ID, to identify each sample
+3. depth, sampling depth of each sample
+4. weight, 
+5. LOI, 
+6. Corg, 
+7. other variables
+
 
 ## Contents
 
 The following functions are presented:
 1.  *bc_compaction*
-2.  *bc_decomp*
-3.  *bc_stock* (work in progress)
-4.  ...        
+2.  *bc_depth_correction*
+
+X.  *bc_decomp* (OLD VERSION)
+        
            
           
 ### 1. *bc_compaction*
@@ -93,7 +97,7 @@ The function uses four arguments
 **compaction rates**, percentage of compression in the core      
 
 
-### 2. *bc_decomp*
+### X. *bc_decomp* (OLD VERSION...)
 
 ```
 Suggestions:
@@ -131,7 +135,7 @@ The output is a data.frame that use the same "ID" of the data provided. For each
 `c_org_density`, density of organic carbon concentration expressed in g/cm<sup>3</sup>           
 `c_org_dens_sect`, density of organic carbon concentration of each section expressed in g/cm<sup>2</sup>      
 
-### 3. *bc_stock* (work in progress)
+### XX. *bc_stock* (Work In Progress)
 
 *bc_stock* calculates carbon stock 
 
