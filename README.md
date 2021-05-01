@@ -57,7 +57,7 @@ In particular, for each core **Core_ID** the following information need to be pr
 
 **Sediment sample properties**
 
-![sample-table](vignettes/sample-table.png)
+<img src="vignettes/sample-table.png" alt="sample-table" width="600"/>
 
 1. Core_ID, **Important** this column is present in both data.frame to identify the sediment cores and it's the key to identify the core from which a sample is originated.
 2. sample_ID, to identify each sample
