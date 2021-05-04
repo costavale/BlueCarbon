@@ -13,7 +13,7 @@
 #' @param internal_distance name of the column with distance between sampler top and core surface
 #' @param external_distance name of the column with distance between sampler top and sediment surface
 #' @param method linear or exponential correction
-#' @return the initial data.frame with the addition of the corrected sample depth and volume
+#' @return the initial sample_data with the addition of the corrected sample depth and volume
 
 bc_depth_correction <-
   function(core_data,
@@ -43,16 +43,23 @@ bc_depth_correction <-
     if (!all(is.numeric(core_data[, sampler_length]),
              is.numeric(core_data[, sampler_diameter]),
              is.numeric(core_data[, internal_distance]),
-             is.numeric(core_data[, external_distance]))) {
+             is.numeric(core_data[, external_distance]),
+             is.numeric(sample_data[, depth]),
+             is.numeric(sample_data[, weight]),
+             is.numeric(sample_data[, volume]))
+             ) {
       non_numeric <-
         !sapply(X = list(core_data[, sampler_length],
                          core_data[, sampler_diameter],
                          core_data[, internal_distance], 
-                         core_data[, external_distance]),
+                         core_data[, external_distance],
+                         sample_data[, depth],
+                         sample_data[, weight],
+                         sample_data[, volume]),
                 FUN = is.numeric)
       
       var_names <-
-        c(sampler_length, sampler_diameter, internal_distance, external_distance)
+        c(sampler_length, sampler_diameter, internal_distance, external_distance, depth, weight, volume)
       
       stop("The following variables are not numeric:\n",
            paste(var_names[which(non_numeric)], sep = "\n"))
