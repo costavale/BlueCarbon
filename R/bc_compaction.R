@@ -39,9 +39,9 @@ bc_compaction <-
     (core_data[, sampler_length] - core_data[, internal_distance]) /
     (core_data[, sampler_length] - core_data[, external_distance])
   
-  
   # compaction rate as percentage
-  core_data$compression_rate <- (1 - compaction_correction_factor) * 100
+  core_data$compression_rate <- 
+    (1 - compaction_correction_factor) * 100
   
   return(core_data)
 }

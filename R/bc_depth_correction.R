@@ -39,21 +39,53 @@ bc_depth_correction <-
       return("Method must be either 'linear' or 'exp'")
     }
     
-    if (method == "linear") {
+    # Stop if the required variables are not numeric
+    if (!all(is.numeric(core_data[, sampler_length]),
+             is.numeric(core_data[, sampler_diameter]),
+             is.numeric(core_data[, internal_distance]),
+             is.numeric(core_data[, external_distance]))) {
+      non_numeric <-
+        !sapply(X = list(core_data[, sampler_length],
+                         core_data[, sampler_diameter],
+                         core_data[, internal_distance], 
+                         core_data[, external_distance]),
+                FUN = is.numeric)
       
-      decomp <- data.frame(data$ID)
-      decomp$cm_obs <- data$cm + ((sampler_lenght - external_distance) - (sampler_lenght - internal_distance))
+      var_names <-
+        c(sampler_length, sampler_diameter, internal_distance, external_distance)
       
-      corr_fact <- as.numeric((sampler_lenght - internal_distance) / (sampler_lenght - external_distance))
-      
-      decomp$cm_deco <- decomp$cm_obs * corr_fact
-      decomp$sect_h <- c(dplyr::first(decomp$cm_deco), diff(decomp$cm_deco))
-      decomp$volume <- (((pi * (sampler_diameter/2)^2) * decomp$sect_h)/2) #volume is divided by two as half section is used
-      decomp$density <- data$weight/decomp$volume
-      
-      return(decomp)
+      stop("The following variables are not numeric:\n",
+           paste(var_names[which(non_numeric)], sep = "\n"))
     }
     
+    # estimate depth correction with "linear" model
+    if (method == "linear") {
+      
+      # as more cores are/could be present, all the calculation are grouped by the Core_ID and sample_ID
+      cm_observed <- 
+        sample_data[, depth] + ((core_data[, sampler_length] - core_data[, external_distance]) - (core_data[, sampler_length] - core_data[, internal_distance]))
+      
+      # estimate compaction correction factor
+      compaction_correction_factor <-
+        (core_data[, sampler_length] - core_data[, internal_distance]) /
+        (core_data[, sampler_length] - core_data[, external_distance])
+      
+      sample_data$depth_corrected <- 
+        cm_observed * compaction_correction_factor
+      
+      sect_h <- 
+        c(dplyr::first(sample_data[, depth_corrected]), diff(sample_data[, depth_corrected]))
+      
+      sample_data$volume <- 
+        (((pi * (core_data[, sampler_diameter]/2)^2) * sect_h)/2) #volume is divided by two as half section is used
+      
+      sample_data$density <- 
+        sample_data[, weight]/sample_data[, volume]
+      
+      return(sample_data)
+    }
+    
+    # estimate depth correction with "exponential" model
     if(method == "exp") {
       
       test <- data.frame(x = c(((sampler_lenght - external_distance) - (sampler_lenght - internal_distance)), (sampler_lenght - external_distance)),
@@ -62,7 +94,6 @@ bc_depth_correction <-
       a <- as.numeric(stats::coef(drc::drm(y~x, data=test, fct=aomisc::DRC.expoDecay()))[1])
       b <- as.numeric(stats::coef(drc::drm(y~x, data=test, fct=aomisc::DRC.expoDecay()))[2])
       
-      decomp <- data.frame(data$ID)
       decomp$cm_obs <- data$cm + ((sampler_lenght - external_distance) - (sampler_lenght - internal_distance))
       decomp$cm_deco <- decomp$cm_obs -
         (a * exp(-b*decomp$cm_obs))
@@ -70,6 +101,6 @@ bc_depth_correction <-
       decomp$volume <- (((pi * (sampler_diameter/2)^2) * decomp$sect_h)/2) #volume is divided by two as half section is used
       decomp$density <- data$weight/decomp$volume
       
-      return(decomp)
+      return(sample_data)
     }
   }
