@@ -30,7 +30,7 @@ bc_depth_correction(
 \item{method}{linear or exponential correction}
 }
 \value{
-the initial data.frame with the addition of the corrected sample depth and volume
+the initial sample_data with the addition of the corrected sample depth and volume
 }
 \description{
 Calculates corrected sample depth and sample volume to account for compaction (linear or exponential methods).

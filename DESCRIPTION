@@ -11,12 +11,13 @@ Description: The BlueCarbon package is a collection of functions with the main f
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
-Depends: 
+Suggests: 
     dplyr,
     drc,
     aomisc,
     knitr,
     rmarkdown
+Additional_repositories: https://github.com/OnofriAndreaPG/aomisc
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
