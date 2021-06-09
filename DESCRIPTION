@@ -1,5 +1,5 @@
 Package: BlueCarbon
-Title: Collection of functions for "Blue Carbon" scientists
+Title: Collection of functions for Blue Carbon scientists
 Version: 0.0.1.1
 Authors@R:
     person(given = "Valentina",
@@ -11,7 +11,7 @@ Description: The BlueCarbon package is a collection of functions with the main f
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
-Suggests: 
+Depends: 
     dplyr,
     drc,
     aomisc,
