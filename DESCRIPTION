@@ -1,5 +1,5 @@
 Package: BlueCarbon
-Title: Collection of functions for Blue Carbon scientists
+Title: Collection of Functions for Blue Carbon Scientists
 Version: 0.0.1.1
 Authors@R:
     person(given = "Valentina",
