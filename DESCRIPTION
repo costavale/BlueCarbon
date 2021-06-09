@@ -17,7 +17,7 @@ Suggests:
     aomisc,
     knitr,
     rmarkdown
-Additional_repositories: https://github.com/OnofriAndreaPG/aomisc
+Remotes: OnofriAndreaPG/aomisc
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
