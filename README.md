@@ -11,14 +11,12 @@
 
 ## Installation
 
-The following packages need to be installed and loaded:
-- *tidyverse*
-- *drc*
-- *aomisc*
+The package is freely available on github. Instructions for installation are also provided at this link. 
+Please note that the *devtools*, *tidyverse*, *aomisc*, *drc* package are necessary, and must be available prior to the installation of 'BlueCarbon'.
 
 ```
-install.packages("tidyverse")
-install.packages("drc")
+install.packages("tidyverse")  # only the first time
+install.packages("drc")  # only the first time
 
 install.packages("devtools") # only the first time
 devtools::install_github("OnofriAndreaPG/aomisc")
