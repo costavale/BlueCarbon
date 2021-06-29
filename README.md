@@ -11,7 +11,7 @@
 
 ## Installation
 
-The package is freely available on github. Instructions for installation are also provided at this link. 
+The package is freely available on [github](https://github.com/valybionda/BlueCarbon).  
 Please note that the *devtools*, *tidyverse*, *aomisc*, *drc* package are necessary, and must be available prior to the installation of 'BlueCarbon'.
 
 ```
