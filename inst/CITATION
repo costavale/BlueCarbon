@@ -1,0 +1,13 @@
+citHeader("To cite BlueCarbon in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "BlueCarbon: blue carbon functions in R",
+  author   = personList(as.person("Valentina Costa")),
+  year     = 2021,
+  doi      = "https://doi.org/10.5281/zenodo.4641831",
+  url      = "https://github.com/valybionda/BlueCarbon",
+  textVersion = paste(
+
+  )
+)
