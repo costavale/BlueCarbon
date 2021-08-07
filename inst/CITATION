@@ -1,7 +1,7 @@
 citHeader("To cite BlueCarbon in publications use:")
 
 citEntry(
-  entry    = "Article",
+  entry    = "misc",
   title    = "BlueCarbon: blue carbon functions in R",
   author   = personList(as.person("Valentina Costa")),
   year     = 2021,

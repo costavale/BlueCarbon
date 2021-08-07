@@ -143,3 +143,7 @@ The output is a data.frame that use the same "ID" of the data provided. For each
 -   `data` data.frame with the following columns "ID", "cm_deco", "c_org_dens_sect"
 
 -   `depth` used to standardize the amount of carbon stored. Default is 1 m
+
+\#\# Code of Conduct
+
+Please note that the BlueCarbon project is released with a [Contributor Code of Conduct](<https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).> By contributing to this project, you agree to abide by its terms.
