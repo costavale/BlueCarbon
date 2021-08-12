@@ -42,14 +42,13 @@ The data is expected to follow [tidy data format](https://cran.r-project.org/web
 
 <img src="vignettes/core-table.png" alt="core-table" width="600"/>
 
-In particular, for each core **Core_ID** (one row per each core) the following information need to be provided
+<img align="right" src="vignettes/core-extraction.png" alt="core-extraction" width="230"/>
+In particular, for each core **Core_ID** (one row per each core) the following information need to be provided 
 
 1.  sampler_length, total length of the sampler
 2.  sampler_diameter, internal diameter of the sampler
 3.  internal_distance, distance between sampler top and core surface
 4.  external_distance, distance between sampler top and sediment surface
-
-<img src="vignettes/core-extraction.png" alt="core-extraction" width="300"/>
 
 ### **2. Sediment sample properties**
 
@@ -74,14 +73,14 @@ X. *bc_decomp* (OLD VERSION)
 
 ### 1. *bc_compaction*
 
-The user provides a data.frame and the function calculates **compaction rates** (in percentage) adding a column in the data.frame.  
+The user provides the core_data data.frame and the function calculates **compaction rates** (in percentage) adding a column in the data.frame.  
 The function uses four arguments
 
-`bc_compaction(data, sampler_lenght, internal_distance, external_distance)`
+`bc_compaction(core_data, sampler_lenght, internal_distance, external_distance)`
 
 #### Arguments
 
--   `data` data.frame with core properties
+-   `core_data` data.frame with core properties
 -   `sampler_lenght` name of the column with the length of the sampler,
 -   `internal_distance` name of the column with the distance between sampler top and core surface,
 -   `external_distance` name of the column with the distance between sampler top and sediment surface
@@ -92,7 +91,7 @@ The function uses four arguments
 
 ### 2. bc_depth_correction
 
-The user provides a core data.frame and a sample data.frame and the function calculates **corrected sample depth** and **sample volume** to account for compaction (linear or exponential methods).
+The user provides the core_data data.frame and the sample_data sample data.frame and the function calculates **corrected sample depth** and **sample volume** to account for compaction (linear or exponential methods).
 
 The user can specify if the sample volume is estimated from a half of the core or in another way.
 
@@ -112,7 +111,8 @@ The function returns the sample data.frame modified with the addition of the est
 
 #### Output
 
-**compaction rates**, percentage of compression in the core
+**corrected sample depth**, sample depth corrected taking into account the compaction rate
+**sample volume**, volume of each sample corrected for the compaction rate
 
 ### X. *bc_decomp* (OLD VERSION...)
 
@@ -164,6 +164,6 @@ The output is a data.frame that use the same "ID" of the data provided. For each
 
 -   `depth` used to standardize the amount of carbon stored. Default is 1 m
 
-\#\# Code of Conduct
+## Code of Conduct
 
 Please note that the BlueCarbon project is released with a [Contributor Code of Conduct](<https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).> By contributing to this project, you agree to abide by its terms.
