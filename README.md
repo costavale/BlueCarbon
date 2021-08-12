@@ -66,12 +66,12 @@ In particular, for each core **Core_ID** (one row per each core) the following i
 
 The following functions are presented:
 
-1.  *bc_compaction*
-2.  *bc_depth_correction*
+1.  *bc_compaction* (WORKING)
+2.  *bc_depth_correction* (WORK IN PROGRESS)
+3.  *bc_decomp* (OLD VERSION - NOT WORKING)
+4.  *bc_stock* (WORK IN PROGRESS)
 
-X. *bc_decomp* (OLD VERSION)
-
-### 1. *bc_compaction*
+### 1. bc_compaction
 
 The user provides the core_data data.frame and the function calculates **compaction rates** (in percentage) adding a column in the data.frame.  
 The function uses four arguments
@@ -114,7 +114,7 @@ The function returns the sample data.frame modified with the addition of the est
 **corrected sample depth**, sample depth corrected taking into account the compaction rate
 **sample volume**, volume of each sample corrected for the compaction rate
 
-### X. *bc_decomp* (OLD VERSION...)
+### 3. bc_decomp (OLD VERSION - NOT WORKING...)
 
     Suggestions:
     Break down in 2 functions:  
@@ -152,7 +152,7 @@ The output is a data.frame that use the same "ID" of the data provided. For each
 `c_org_density`, density of organic carbon concentration expressed in g/cm<sup>3</sup>  
 `c_org_dens_sect`, density of organic carbon concentration of each section expressed in g/cm<sup>2</sup>
 
-### XX. *bc_stock* (Work In Progress)
+### 4. bc_stock (Work In Progress)
 
 *bc_stock* calculates carbon stock
 
@@ -161,9 +161,9 @@ The output is a data.frame that use the same "ID" of the data provided. For each
 #### Arguments
 
 -   `data` data.frame with the following columns "ID", "cm_deco", "c_org_dens_sect"
-
 -   `depth` used to standardize the amount of carbon stored. Default is 1 m
 
 ## Code of Conduct
 
-Please note that the BlueCarbon project is released with a [Contributor Code of Conduct](<https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).> By contributing to this project, you agree to abide by its terms.
+Please note that the BlueCarbon project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). 
+By contributing to this project, you agree to abide by its terms.
