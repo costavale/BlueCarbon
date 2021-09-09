@@ -7,9 +7,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "vale.costa@gmail.com",
            comment = c(ORCID = "0000-0002-1513-0284")),
-           person(given = "XXX",
-             family = "XXX",
-             role = "ctb"))
+           person(given = "Márcio",
+             family = "Martins",
+             role = "ctb",
+             comment = c(ORCID = "0000-0003-2392-6140"))
 Description: The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists.
 License: file LICENSE
 Encoding: UTF-8
