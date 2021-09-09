@@ -10,7 +10,7 @@ Authors@R:
            person(given = "Márcio",
              family = "Martins",
              role = "ctb",
-             comment = c(ORCID = "0000-0003-2392-6140"))
+             comment = c(ORCID = "0000-0002-6969-2215"))
 Description: The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists.
 License: file LICENSE
 Encoding: UTF-8
