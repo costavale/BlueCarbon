@@ -6,7 +6,7 @@
 \usage{
 bc_compaction(
   core_data,
-  sampler_length = "sampler_lenght",
+  sampler_length = "sampler_length",
   internal_distance = "internal_distance",
   external_distance = "external_distance"
 )
