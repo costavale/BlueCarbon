@@ -8,17 +8,19 @@
 #' 
 #' @param core_data data.frame with core properties
 #' @param sample_data data.frame with sample properties
-#' @param sampler_lenght name of the column with the total length of the sampler tube
+#' @param sampler_length name of the column with the total length of the sampler tube
 #' @param sampler_diameter name of the column with the diameter of the sampler tube
 #' @param internal_distance name of the column with distance between sampler top and core surface
 #' @param external_distance name of the column with distance between sampler top and sediment surface
 #' @param method linear or exponential correction
 #' @return the initial sample_data with the addition of the corrected sample depth and volume
+#' 
+#' @export
 
 bc_depth_correction <-
   function(core_data,
            sample_data,
-           sampler_lenght = "sampler_lenght",
+           sampler_length = "sampler_length",
            sampler_diameter = "sampler_diameter",
            internal_distance = "internal_distance",
            external_distance = "external_distance",

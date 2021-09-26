@@ -6,7 +6,7 @@
 \usage{
 bc_decomp(
   data,
-  sampler_lenght,
+  sampler_length,
   internal_distance,
   external_distance,
   sampler_diameter,
@@ -14,13 +14,13 @@ bc_decomp(
 )
 }
 \arguments{
-\item{data}{dataframe with the following columns "ID" "cm" "weight" "LOI" "c_org".}
+\item{data}{data.frame with the following columns "ID" "cm" "weight" "LOI" "c_org".}
 
-\item{sampler_lenght}{name of the column with the total length of the sampler tube}
+\item{sampler_length}{name of the column with the total length of the sampler tube}
 
-\item{internal_distance}{The lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler).}
+\item{internal_distance}{The length in cm of the part of the sampler left outside of the sediment (from the inside of the sampler).}
 
-\item{external_distance}{The lenght in cm of the part of the sampler left outside of the sediment (from the outside of the sampler).}
+\item{external_distance}{The length in cm of the part of the sampler left outside of the sediment (from the outside of the sampler).}
 
 \item{sampler_diameter}{diameter in cm of the sampler}
 

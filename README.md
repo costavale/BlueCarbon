@@ -43,7 +43,7 @@ The data is expected to follow [tidy data format](https://cran.r-project.org/web
 <img src="vignettes/core-table.png" alt="core-table" width="600"/>
 
 <img align="right" src="vignettes/core-extraction.png" alt="core-extraction" width="230"/>
-In particular, for each core **Core_ID** (one row per each core) the following information need to be provided :
+In particular, for each core **core_ID** (one row per each core) the following information need to be provided :
 
 1.  sampler_length, total length of the sampler
 2.  sampler_diameter, internal diameter of the sampler
@@ -103,7 +103,7 @@ The function returns the sample data.frame modified with the addition of the est
 
 -   `core_data` data.frame with core properties,
 -   `sample_data` data.frame with sample properties,
--   `sampler_lenght` name of the column with the length of the sampler,
+-   `sampler_length` name of the column with the length of the sampler,
 -   `sampler_diameter` name of the column with the diameter of the sampler,
 -   `internal_distance` name of the column with the distance between sampler top and core surface,
 -   `external_distance` name of the column with the distance between sampler top and sediment surface

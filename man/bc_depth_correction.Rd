@@ -7,7 +7,7 @@
 bc_depth_correction(
   core_data,
   sample_data,
-  sampler_lenght = "sampler_lenght",
+  sampler_length = "sampler_length",
   sampler_diameter = "sampler_diameter",
   internal_distance = "internal_distance",
   external_distance = "external_distance",
@@ -19,7 +19,7 @@ bc_depth_correction(
 
 \item{sample_data}{data.frame with sample properties}
 
-\item{sampler_lenght}{name of the column with the total length of the sampler tube}
+\item{sampler_length}{name of the column with the total length of the sampler tube}
 
 \item{sampler_diameter}{name of the column with the diameter of the sampler tube}
 
