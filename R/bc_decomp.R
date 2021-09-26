@@ -2,17 +2,18 @@
 #'
 #' This function uses six arguments
 #' 
-#' @param data dataframe with the following columns "ID" "cm" "weight" "LOI" "c_org".
-#' @param sampler_lenght name of the column with the total length of the sampler tube
-#' @param internal_distance The lenght in cm of the part of the sampler left outside of the sediment (from the inside of the sampler).
-#' @param external_distance The lenght in cm of the part of the sampler left outside of the sediment (from the outside of the sampler).
+#' @param data data.frame with the following columns "ID" "cm" "weight" "LOI" "c_org".
+#' @param sampler_length name of the column with the total length of the sampler tube
+#' @param internal_distance The length in cm of the part of the sampler left outside of the sediment (from the inside of the sampler).
+#' @param external_distance The length in cm of the part of the sampler left outside of the sediment (from the outside of the sampler).
 #' @param sampler_diameter diameter in cm of the sampler
 #' @param method used to estimate the decompressed depth of each section, "linear" or "exp". Default is "linear".
 #' 
+#' @export
 
 bc_decomp <-
   function(data,
-           sampler_lenght,
+           sampler_length,
            internal_distance,
            external_distance,
            sampler_diameter,
@@ -32,9 +33,9 @@ bc_decomp <-
       
 
       decomp <- data.frame(data$ID)
-      decomp$cm_obs <- data$cm + ((sampler_lenght - external_distance) - (sampler_lenght - internal_distance))
+      decomp$cm_obs <- data$cm + ((sampler_length - external_distance) - (sampler_length - internal_distance))
 
-      corr_fact <- as.numeric((sampler_lenght - internal_distance) / (sampler_lenght - external_distance))
+      corr_fact <- as.numeric((sampler_length - internal_distance) / (sampler_length - external_distance))
 
       decomp$cm_deco <- decomp$cm_obs * corr_fact
       decomp$sect_h <- c(dplyr::first(decomp$cm_deco), diff(decomp$cm_deco))
@@ -52,14 +53,14 @@ bc_decomp <-
     }
 
     if(method == "exp") {
-      test <- data.frame(x = c(((sampler_lenght - external_distance) - (sampler_lenght - internal_distance)), (sampler_lenght - external_distance)),
-                         y = c(((sampler_lenght - external_distance) - (sampler_lenght - internal_distance)), 0.1))
+      test <- data.frame(x = c(((sampler_length - external_distance) - (sampler_length - internal_distance)), (sampler_length - external_distance)),
+                         y = c(((sampler_length - external_distance) - (sampler_length - internal_distance)), 0.1))
 
       a <- as.numeric(stats::coef(drc::drm(y~x, data=test, fct=aomisc::DRC.expoDecay()))[1])
       b <- as.numeric(stats::coef(drc::drm(y~x, data=test, fct=aomisc::DRC.expoDecay()))[2])
 
       decomp <- data.frame(data$ID)
-      decomp$cm_obs <- data$cm + ((sampler_lenght - external_distance) - (sampler_lenght - internal_distance))
+      decomp$cm_obs <- data$cm + ((sampler_length - external_distance) - (sampler_length - internal_distance))
       decomp$cm_deco <- decomp$cm_obs -
         (a * exp(-b*decomp$cm_obs))
       decomp$sect_h <- c(dplyr::first(decomp$cm_deco), diff(decomp$cm_deco))
