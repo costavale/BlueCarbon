@@ -11,7 +11,8 @@ bc_stocks(
   element_concentration,
   maximum_depth,
   method = NULL,
-  extrapolation_rule
+  section_height = NULL,
+  diagnostic_plot = FALSE
 )
 }
 \arguments{

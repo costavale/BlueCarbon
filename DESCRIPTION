@@ -1,27 +1,18 @@
 Package: BlueCarbon
-Title: Collection of Functions for Blue Carbon Scientists
-Version: 0.0.1.1
+Title: Collection of functions for "Blue Carbon" scientists
+Version: 0.0.1
 Authors@R:
-    c(person(given = "Valentina",
+    person(given = "Valentina",
            family = "Costa",
            role = c("aut", "cre"),
            email = "vale.costa@gmail.com",
-           comment = c(ORCID = "0000-0002-1513-0284")),
-           person(given = "Márcio",
-             family = "Martins",
-             role = "ctb",
-             comment = c(ORCID = "0000-0002-6969-2215")))
+           comment = c(ORCID = "0000-0002-1513-0284"))
 Description: The BlueCarbon package is a collection of functions with the main focus to help "blue carbon" scientists.
-License: file LICENSE
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
 Encoding: UTF-8
 LazyData: true
-Suggests: 
-    dplyr,
-    drc,
-    aomisc,
-    knitr,
-    rmarkdown
-Remotes: OnofriAndreaPG/aomisc
-VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: 
+    MESS
