@@ -9,6 +9,8 @@
 #' @export
 
 # TODO: Add warnings when extrapolation occurs!!
+# TODO: Add data checks when user provides section heights: is the final result
+#   equal to maximum_depth?
 
 bc_stocks <- function(
   sample_data,
@@ -46,12 +48,12 @@ bc_stocks <- function(
       }
     )
     
-    stocks <- as.data.frame(
+    stocks <- data.frame(
       "core_id" = names(stocks),
       "element_stock" = stocks)
     
   } else if(method == "rectangular"){
-    # If height of sections represented by each slice are given
+    # Height of sections represented by each slice are given
     if(!is.null(section_height)){
       sample_data$section_start <- sample_data[ , sample_depth] - 
                                    sample_data[, section_height]/2
