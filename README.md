@@ -10,7 +10,6 @@
 
 ## Installation
 
-The package is freely available on [github](https://github.com/valybionda/BlueCarbon).  
 Please note that the *devtools*, *tidyverse*, *aomisc*, *drc* package are necessary, and must be available prior to the installation of 'BlueCarbon'.
 
     install.packages("tidyverse")  # only the first time
@@ -42,8 +41,7 @@ The data is expected to follow [tidy data format](https://cran.r-project.org/web
 
 <img src="vignettes/core-table.png" alt="core-table" width="600"/>
 
-<img align="right" src="vignettes/core-extraction.png" alt="core-extraction" width="230"/>
-In particular, for each core **core_ID** (one row per each core) the following information need to be provided :
+<img src="vignettes/core-extraction.png" alt="core-extraction" align="right" width="230"/> In particular, for each core **core_ID** (one row per each core) the following information need to be provided :
 
 1.  sampler_length, total length of the sampler
 2.  sampler_diameter, internal diameter of the sampler
@@ -111,8 +109,7 @@ The function returns the sample data.frame modified with the addition of the est
 
 #### Output
 
-**corrected sample depth**, sample depth corrected taking into account the compaction rate
-**sample volume**, volume of each sample corrected for the compaction rate
+**corrected sample depth**, sample depth corrected taking into account the compaction rate **sample volume**, volume of each sample corrected for the compaction rate
 
 ### 3. bc_decomp (OLD VERSION - NOT WORKING...)
 
@@ -165,5 +162,4 @@ The output is a data.frame that use the same "ID" of the data provided. For each
 
 ## Code of Conduct
 
-Please note that the BlueCarbon project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). 
-By contributing to this project, you agree to abide by its terms.
+Please note that the BlueCarbon project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
