@@ -58,7 +58,12 @@ bc_stocks <- function(sample_data,
       "element_stock" = stocks
     )
 
-    if (diagnostic_plot) plot_stock_diagnostic(sample_data, method)
+    if (diagnostic_plot) plot_stock_diagnostic(sample_data,
+                                               core_id,
+                                               sample_depth,
+                                               element_concentration,
+                                               maximum_depth,
+                                               method)
     
     return(stocks)
 
@@ -105,7 +110,7 @@ bc_stocks <- function(sample_data,
       # If height of sections represented by each slice are not given
     } else {
       sample_data <- split(sample_data, f = sample_data[, core_id])
-
+      
       # Calculate core section heights and extrapolate
       sample_data <- lapply(
         sample_data,
@@ -145,7 +150,12 @@ bc_stocks <- function(sample_data,
       )
     }
 
-    if(diagnostic_plot) plot_stock_diagnostic(sample_data, method)
+    if (diagnostic_plot) plot_stock_diagnostic(sample_data,
+                                               core_id,
+                                               sample_depth,
+                                               element_concentration,
+                                               maximum_depth,
+                                               method)
 
     sample_data <- do.call(rbind, sample_data)
 

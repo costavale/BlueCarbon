@@ -5,8 +5,14 @@
 #' @param sample_data Sample data as a list, split by sediment core
 #' @param method Method used to calculate elemental stock
 
-plot_stock_diagnostic <- function(sample_data, method) {
-
+plot_stock_diagnostic <- function(
+  sample_data,
+  core_id,
+  sample_depth,
+  element_concentration,
+  maximum_depth,
+  method){
+  
   # Add depth zero value
   stock_points <- lapply(
     sample_data,
@@ -19,7 +25,6 @@ plot_stock_diagnostic <- function(sample_data, method) {
   )
 
 
-  # Trapezoid method visualization ------------------------------------------
   if (method == "trapezoid") {
 
     # If extrapolation is required, create data.frame to visualize it
@@ -71,7 +76,6 @@ plot_stock_diagnostic <- function(sample_data, method) {
 
     print(stock_plot)
 
-    # Rectangle method visualization ------------------------------------------
   } else if (method == "rectangle") {
 
     # If extrapolation is required, create data.frame to visualize it
@@ -101,8 +105,7 @@ plot_stock_diagnostic <- function(sample_data, method) {
           ymax = .data[[element_concentration]]
         )
       ) +
-      {
-        if (!is.null(extrapolated_values)) {
+      {if (nrow(extrapolated_values) > 0) {
           geom_rect(
             data = extrapolated_values,
             aes(

@@ -11,7 +11,8 @@ bc_stocks(
   element_concentration,
   maximum_depth,
   method = NULL,
-  extrapolation_rule
+  section_height = NULL,
+  diagnostic_plot = FALSE
 )
 }
 \arguments{
@@ -20,4 +21,16 @@ bc_stocks(
 \description{
 Estimate the stock of an element contained given its concentration along
 a sediment core
+}
+\details{
+\strong{Calculate elemental stocks:}
+\enumerate{
+\item Trapezoid rule (Martins, M. et al 2021)
+\item Rectangle rule (Howard, J. et al 2014)
+}
+\itemize{
+\item User provides height of sections represented by samples
+\item Height of section represented by samples are automatically estimated
+3.(optional) - Plots how the stock is being estimated, with a special draw towards any sections that have to be extrapolated
+}
 }
