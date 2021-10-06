@@ -2,7 +2,7 @@
 % Please edit documentation in R/bc_stocks.R
 \name{bc_stocks}
 \alias{bc_stocks}
-\title{estimate_stock()}
+\title{bc_stock()}
 \usage{
 bc_stocks(
   sample_data,
@@ -16,11 +16,27 @@ bc_stocks(
 )
 }
 \arguments{
-\item{sample_data}{}
+\item{sample_data}{Sediment sample properties, after calculating elemental concentration and correcting compaction}
+
+\item{core_id}{Name of for core the identifier. Should be a string}
+
+\item{sample_depth}{Name of variable for the depth at which samples were taken}
+
+\item{element_concentration}{Name of the variable for the concentration of the element whose stock is being estimated}
+
+\item{maximum_depth}{Depth to which to estimate the stock.}
+
+\item{method}{Method used to estimate the stock, one of "rectangle" or "trapezoid"}
+
+\item{diagnostic_plot}{Should a plot of how the stock was estimated be shown? FALSE (default) or TRUE}
+
+\item{section_start}{(Optional, only for "rectangle" method) Depth at which the core section represented by each sample begins}
+
+\item{section_end}{(Optional, only for "rectangle" method) Depth at which the core section represented by each sample ends}
 }
 \description{
 Estimate the stock of an element contained given its concentration along
-a sediment core
+a sediment core.
 }
 \details{
 \strong{Calculate elemental stocks:}
@@ -29,8 +45,8 @@ a sediment core
 \item Rectangle rule (Howard, J. et al 2014)
 }
 \itemize{
-\item User provides height of sections represented by samples
-\item Height of section represented by samples are automatically estimated
+\item User provides start and end of sections represented by samples
+\item Heights of sections are automatically estimated
 3.(optional) - Plots how the stock is being estimated, with a special draw towards any sections that have to be extrapolated
 }
 }

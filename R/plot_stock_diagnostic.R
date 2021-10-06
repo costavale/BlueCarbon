@@ -24,9 +24,7 @@ plot_stock_diagnostic <- function(
     }
   )
 
-
   if (method == "trapezoid") {
-
     # If extrapolation is required, create data.frame to visualize it
     extrapolated_values <- lapply(
       sample_data,
@@ -50,8 +48,26 @@ plot_stock_diagnostic <- function(
         aes(
           x = .data[[sample_depth]],
           y = .data[[element_concentration]]
-        )
+        ),
+        fill = "#595959a6",
+        color = "black",
+        size = 0.3
       ) +
+      {if (!is.null(extrapolated_values)) {
+        geom_rect(
+          data = extrapolated_values,
+          aes(
+            xmin = .data[[sample_depth]],
+            xmax = maximum_depth,
+            ymin = 0,
+            ymax = .data[[element_concentration]]
+          ),
+          color = "red",
+          linetype = "dashed",
+          fill = "#595959a6",
+        )
+      }
+      } +
       geom_point(
         data = sample_data,
         aes(
@@ -61,18 +77,8 @@ plot_stock_diagnostic <- function(
       ) +
       facet_wrap(c(core_id)) +
       scale_x_reverse(expand = expansion(c(0, 0.02))) +
-      coord_flip(xlim = c(maximum_depth, 0)) +
-      if (!is.null(extrapolated_values)) {
-        geom_line(
-          data = extrapolated_values,
-          aes(
-            x = .data[[sample_depth]],
-            y = .data[[element_concentration]]
-          ),
-          color = "red",
-          linetype = "dashed"
-        )
-      }
+      coord_flip(xlim = c(maximum_depth, 0))
+
 
     print(stock_plot)
 
@@ -103,21 +109,25 @@ plot_stock_diagnostic <- function(
           xmax = section_end,
           ymin = 0,
           ymax = .data[[element_concentration]]
-        )
+        ),
+        fill = "#595959a6",
+        color = "black",
+        size = 0.3
       ) +
       {if (nrow(extrapolated_values) > 0) {
-          geom_rect(
-            data = extrapolated_values,
-            aes(
-              xmin = section_start,
-              xmax = section_end,
-              ymin = 0,
-              ymax = .data[[element_concentration]]
-            ),
-            color = "red",
-            linetype = "dashed"
-          )
-        }
+        geom_rect(
+          data = extrapolated_values,
+          aes(
+            xmin = section_start,
+            xmax = section_end,
+            ymin = 0,
+            ymax = .data[[element_concentration]]
+          ),
+          color = "red",
+          linetype = "dashed",
+          fill = "#595959a6"
+        )
+      }
       } +
       geom_point(
         data = sample_data,
