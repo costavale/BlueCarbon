@@ -1,0 +1,132 @@
+---
+title: "Stock calculation methods"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{estimating-stocks}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(BlueCarbon)
+library(tidyverse)
+data(bc_data)
+
+# TODO: Change this to use real data when compaction correction is changed
+example_data <- bc_samples %>%
+  filter(core_id == "core2",
+         !is.na(oc)) %>%
+  mutate(oc_concentration = oc)
+```
+
+# Estimating carbon stocks
+
+> This vignette is an early draft
+
+## Ontology
+
+**Dry bulk density** - Mass of dry material per volume of sediment (g / cm^3^).
+
+**Organic carbon content** - Concentration of the element (e.g organic carbon), expressed as a fraction or percentage of the dried weight of the sample (g element / g dw; %).
+
+**Organic carbon concentration** - Concentration of the element (e.g organic carbon), expressed as mass per volume (g OC / cm^3^). Calculated as elemental content multiplied by dry bulk density.
+
+**Organic carbon pool** - Part of an ecosystem where organic carbon is stored, such as the sediment or the vegetation. These are summed up to create a carbon stock of the system. The granularity of these pools is defined by your sampling design.
+
+**Carbon stock** - Amount of carbon in part of, or a whole, system. These are often expressed as mass of carbon per area (e.g Mg OC ), as a way to compare storage of carbon in different habitats.
+
+## Data requirements
+
+By now your data should:\
+1. Be corrected to account for decompression\
+2. Contain an estimate of the carbon concentration in your samples (g C / cm^3^)
+
+# Estimation methods
+
+Calculate the carbon stock per unit of area in a sediment core, the OC concentration must be integrated over depth, to the maximum depth for which you want to calculate the stock (i.e. calculate the area under the curve of the OC concentration profile).
+
+There are several approaches to integration, and this package includes 2:
+
+## 1. The rectangle method (Howard et al, 2014)
+
+This method assumes that the OC concentration of each sampled core section is a constant value. You can provide the start and end point for each section, or provide the sampling depths and let the package estimate those points. This automatic estimation is done by setting a section's start and end depths as the middle point to the previous and next sections, respectively:
+
+$$Start~depth_{i}= Middle~depth_{i} - \frac{Middle~depth_{i} - Middle~depth_{i - 1}}{2}$$
+
+$$End~depth_{i}= Middle~depth_{i} + \frac{Middle~depth_{i+1} - Middle~depth_{i}}{2}$$
+For the first layer, the start depth is set as 0 and, for the last one, as the sampling depth.
+
+```{r}
+bc_stocks(
+  example_data,
+  core_id = "core_id",
+  sample_depth = "middle_depth",
+  element_concentration = "oc_concentration",
+  maximum_depth = 100,
+  method = "rectangle",
+  diagnostic_plot = TRUE
+)
+```
+
+2.  The trapezoid method (Martins et al, 2021)
+
+This method assumes that the OC concentration changes linearly between collected samples. It's best used if you collected several samples per core section.
+
+```{r}
+bc_stocks(
+  example_data,
+  core_id = "core_id",
+  sample_depth = "middle_depth",
+  element_concentration = "oc_concentration",
+  maximum_depth = 100,
+  method = "trapezoid",
+  diagnostic_plot = TRUE
+)
+```
+
+## Which method to choose?
+
+Which method to choose depends on how you decided to collect your samples. If you collected a single sample for each core section, the rectangle rule might be the most appropriate. If, however, you collected samples at regular intervals or at the start and end of core sections, the trapezoid method might be more appropriate.
+
+> TODO: Take some of the cores with samples every 2 cm, replicate both of these sampling methodologies and see which one is closer to the truth
+
+# Data extrapolation
+
+Calculated stocks are always dependent on the depth you chose. You can not compare a carbon stock for different sediment column heights.
+
+This can be an issue, as bibliography generally measures stocks for the top meter of sediment, but you can't always take cores this deep. Originally, some papers used a simple approximation by simply multiplying the stock by $\frac{100~cm}{measured~depth}$, which assumes that missing height of sediment has as much carbon as the sampled one. However, this is usually not true, as a carbon content decrease can be observed in the top meter of sediment. An approach that leads to smaller errors, while still imperfect, is propagating the last measured value to the required depth.
+
+```{r}
+example_data <- bc_samples %>%
+  filter(core_id == "core1",
+         !is.na(oc)) %>%
+  mutate(oc_concentration = oc)
+
+bc_stocks(
+  example_data,
+  core_id = "core_id",
+  sample_depth = "middle_depth",
+  element_concentration = "oc_concentration",
+  maximum_depth = 100,
+  method = "trapezoid",
+  diagnostic_plot = TRUE
+)
+
+```
+
+Please note that this method still assumes that the last recorded value is a good approximation of the carbon concentration in the rest of your sediment core. It's up to you to inspect the profile and see if that's true.
+
+> TODO: Add some plots comparing the method of multiplying the stock to propagating last recorded values - I already have a report about this, check the reports for Martins 2021
+
+# References
+
+Howard, Jennifer, Sarah Hoyt, Kirsten Isensee, Emily Pidgeon, and Maciej Telszewski, eds. 2014. Coastal Blue Carbon: Methods for Assessing Carbon Stocks and Emissions Factors in Mangroves, Tidal Salt Marshes, and Seagrass Meadows. Arlington, Virginia, USA: Conservation International, Intergovernmental Oceanographic Commission of UNESCO, International Union for Conservation of Nature. <http://thebluecarboninitiative.org/manual/>.
+
+Martins, Márcio, Carmen B. de los Santos, Pere Masqué, A. Rita Carrasco, Cristina Veiga-Pires, and Rui Santos. 2021. "Carbon and Nitrogen Stocks and Burial Rates in Intertidal Vegetated Habitats of a Mesotidal Coastal Lagoon." Ecosystems, June. <https://doi.org/10.1007/s10021-021-00660-6>.
