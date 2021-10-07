@@ -60,8 +60,7 @@ This method assumes that the OC concentration of each sampled core section is a 
 
 $$Start~depth_{i}= Middle~depth_{i} - \frac{Middle~depth_{i} - Middle~depth_{i - 1}}{2}$$
 
-$$End~depth_{i}= Middle~depth_{i} + \frac{Middle~depth_{i+1} - Middle~depth_{i}}{2}$$
-For the first layer, the start depth is set as 0 and, for the last one, as the sampling depth.
+$$End~depth_{i}= Middle~depth_{i} + \frac{Middle~depth_{i+1} - Middle~depth_{i}}{2}$$ For the first layer, the start depth is set as 0 and, for the last one, as the sampling depth.
 
 ```{r}
 bc_stocks(
@@ -75,7 +74,7 @@ bc_stocks(
 )
 ```
 
-2.  The trapezoid method (Martins et al, 2021)
+## 2. The trapezoid method (Martins et al., 2021)
 
 This method assumes that the OC concentration changes linearly between collected samples. It's best used if you collected several samples per core section.
 
@@ -93,7 +92,9 @@ bc_stocks(
 
 ## Which method to choose?
 
-Which method to choose depends on how you decided to collect your samples. If you collected a single sample for each core section, the rectangle rule might be the most appropriate. If, however, you collected samples at regular intervals or at the start and end of core sections, the trapezoid method might be more appropriate.
+Which method to choose depends on how you decided to collect your samples.
+
+If you collected a single sample for each core section, the rectangle rule might be the most appropriate. If, however, you collected samples at regular intervals or at the start and end of core sections, the trapezoid method might be more appropriate.
 
 > TODO: Take some of the cores with samples every 2 cm, replicate both of these sampling methodologies and see which one is closer to the truth
 
