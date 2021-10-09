@@ -74,7 +74,12 @@ The following functions are presented:
 The user provides the core_data data.frame and the function calculates **compaction rates** (in percentage) adding a column in the data.frame.  
 The function uses four arguments
 
-`bc_compaction(core_data, sampler_lenght, internal_distance, external_distance)`
+    bc_compaction(
+      core_data,
+      sampler_lenght,
+      internal_distance,
+      external_distance)
+
 
 #### Arguments
 
@@ -95,7 +100,14 @@ The user can specify if the sample volume is estimated from a half of the core o
 
 The function returns the sample data.frame modified with the addition of the estimated parameters.
 
-`bc_depth_correction(core_data, sample_data, sampler_lenght, sampler_diameter, internal_distance, external_distance, method)`
+    bc_depth_correction(
+      core_data,
+      sample_data,
+      sampler_lenght,
+      sampler_diameter,
+      internal_distance,
+      external_distance,
+      method)
 
 #### Arguments
 
