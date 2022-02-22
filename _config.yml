@@ -1,1 +1,23 @@
-theme: jekyll-theme-slate
+name: "BlueCarbon"
+title: "BlueCarbon"
+description: |
+  BlueCarbon
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    # - text: "Basic GitHub "
+    #   href: basic_github.html
+    # - text: "Committing to working with GitHub"
+    #   href: commit_github.html
+    # - text: "Branching with GitHub"
+    #   href: branch_github.html
+    # - text: "Collaborating with GitHub"
+    #   href: collab_github.html
+    # - text: "List of Resources"
+    #   href: resources_github.html
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
