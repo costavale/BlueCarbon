@@ -26,7 +26,7 @@ Install the BlueCarbon package (and the vignettes):
 
     # You can install (and update) the BlueCarbon package from GitHub
 
-    devtools::install_github("valybionda/BlueCarbon", build_vignettes = TRUE)
+    devtools::install_github("costavale/BlueCarbon", build_vignettes = TRUE)
 
 ## Expected data format
 
@@ -79,7 +79,6 @@ The function uses four arguments
       sampler_lenght,
       internal_distance,
       external_distance)
-
 
 #### Arguments
 
