@@ -20,10 +20,10 @@ library(tidyverse)
 data(bc_data)
 
 # TODO: Change this to use real data when compaction correction is changed
-example_data <- bc_samples %>%
-  filter(core_id == "core2",
-         !is.na(oc)) %>%
-  mutate(oc_concentration = oc)
+# example_data <- bc_samples %>%
+#   filter(core_id == "core2",
+#          !is.na(oc)) %>%
+#   mutate(oc_concentration = oc)
 ```
 
 # Estimating carbon stocks
@@ -63,15 +63,15 @@ $$Start~depth_{i}= Middle~depth_{i} - \frac{Middle~depth_{i} - Middle~depth_{i -
 $$End~depth_{i}= Middle~depth_{i} + \frac{Middle~depth_{i+1} - Middle~depth_{i}}{2}$$ For the first layer, the start depth is set as 0 and, for the last one, as the sampling depth.
 
 ```{r}
-bc_stocks(
-  example_data,
-  core_id = "core_id",
-  sample_depth = "middle_depth",
-  element_concentration = "oc_concentration",
-  maximum_depth = 100,
-  method = "rectangle",
-  diagnostic_plot = TRUE
-)
+# bc_stocks(
+#   example_data,
+#   core_id = "core_id",
+#   sample_depth = "middle_depth",
+#   element_concentration = "oc_concentration",
+#   maximum_depth = 100,
+#   method = "rectangle",
+#   diagnostic_plot = TRUE
+# )
 ```
 
 ## 2. The trapezoid method (Martins et al., 2021)
@@ -79,15 +79,15 @@ bc_stocks(
 This method assumes that the OC concentration changes linearly between collected samples. It's best used if you collected several samples per core section.
 
 ```{r}
-bc_stocks(
-  example_data,
-  core_id = "core_id",
-  sample_depth = "middle_depth",
-  element_concentration = "oc_concentration",
-  maximum_depth = 100,
-  method = "trapezoid",
-  diagnostic_plot = TRUE
-)
+# bc_stocks(
+#   example_data,
+#   core_id = "core_id",
+#   sample_depth = "middle_depth",
+#   element_concentration = "oc_concentration",
+#   maximum_depth = 100,
+#   method = "trapezoid",
+#   diagnostic_plot = TRUE
+# )
 ```
 
 ## Which method to choose?
@@ -105,20 +105,20 @@ Calculated stocks are always dependent on the depth you chose. You can not compa
 This can be an issue, as bibliography generally measures stocks for the top meter of sediment, but you can't always take cores this deep. Originally, some papers used a simple approximation by simply multiplying the stock by $\frac{100~cm}{measured~depth}$, which assumes that missing height of sediment has as much carbon as the sampled one. However, this is usually not true, as a carbon content decrease can be observed in the top meter of sediment. An approach that leads to smaller errors, while still imperfect, is propagating the last measured value to the required depth.
 
 ```{r}
-example_data <- bc_samples %>%
-  filter(core_id == "core1",
-         !is.na(oc)) %>%
-  mutate(oc_concentration = oc)
+# example_data <- bc_samples %>%
+#   filter(core_id == "core1",
+#          !is.na(oc)) %>%
+#   mutate(oc_concentration = oc)
 
-bc_stocks(
-  example_data,
-  core_id = "core_id",
-  sample_depth = "middle_depth",
-  element_concentration = "oc_concentration",
-  maximum_depth = 100,
-  method = "trapezoid",
-  diagnostic_plot = TRUE
-)
+# bc_stocks(
+#   example_data,
+#   core_id = "core_id",
+#   sample_depth = "middle_depth",
+#   element_concentration = "oc_concentration",
+#   maximum_depth = 100,
+#   method = "trapezoid",
+#   diagnostic_plot = TRUE
+# )
 
 ```
 
